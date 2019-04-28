@@ -11,21 +11,16 @@ class TodoCreater extends React.Component {
             text: '',
             errorFlg: false
         }
-
         this.handleChangeText = this.handleChangeText.bind(this);
         this.handleKeyUp = this.handleKeyUp.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
     }
 
     handleChangeText(event) {
-        console.log('changeText');
-
         this.setState({text: event.target.value});
     }
 
     handleKeyUp(event) {
-        console.log('KeyUp');
         if (event.keyCode === 13 && event.shiftKey === true) {
 
             if (!this.state.text) {
@@ -34,7 +29,6 @@ class TodoCreater extends React.Component {
             }
             this.setState({errorFlg: false});
             this.setState({text: ''});
-            // this.props.onAddTask(this.state.text);
             this.props.dispatch(addTask(this.createHashId(),this.state.text));
         }
     }
@@ -61,7 +55,7 @@ class TodoCreater extends React.Component {
                     type="text"
                     className="inputText js-get-val"
                     value={this.state.text}
-                    placeholder="あああ何んんらかのタスク"/>
+                    placeholder="shift+Enterで追加できます"/>
                 {error}
             </div>
         </form>)

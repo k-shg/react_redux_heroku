@@ -14,12 +14,12 @@ const initialState = {
     },
     {
         id: '02',
-        text: 'aaカリスマ',
+        text: 'aaaサンプルタスク',
         isDone: false
     },
     {
         id: '03',
-        text: 'aacccカリスマ',
+        text: 'aacサンプルタスク',
         isDone: false
     }],
     searchText: ''

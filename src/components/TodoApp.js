@@ -1,10 +1,8 @@
 import React from 'react';
 import TodoCreater from  './TodoCreater';
 import Search from './Search';
-
 import {connect} from 'react-redux'
 import PropTypes from "prop-types";
-
 import VisibleTodoList from '../containers/VisibleTodoList'
 import _ from 'lodash'
 
@@ -34,24 +32,18 @@ class TodoApp extends React.Component {
         this.addTask = this.addTask.bind(this);
         this.searchTask = this.searchTask.bind(this);
         this.filterTask = this.filterTask.bind(this);
-
     }
 
-
     handleRemove(id) {
-        console.log('appのremove');
         let data = _.reject(this.state.data, function(data) {
             return data.id === id;
         });
-
         this.setState({
             data: data
         });
     }
 
     addTask(text) {
-        console.log('addTask');
-
         let hash = this.createHashId();
 
         if(this.state.data.indexOf(hash) < 0) {
@@ -68,7 +60,6 @@ class TodoApp extends React.Component {
     }
 
     searchTask(searchText) {
-        console.log('searchTask');
         this.setState({
             searchText: searchText
         });
@@ -82,11 +73,28 @@ class TodoApp extends React.Component {
     render() {
 
         return (
-            <div>
-                <TodoCreater />
-                <Search />
-                <VisibleTodoList />
-            </div>
+
+                <div className="container">
+
+                    <div className="left">
+                        <div className="container__todo-create">
+                            <div className="title">タスク追加</div>
+                            <TodoCreater />
+                        </div>
+
+                        <div className="container__search">
+                            <div className="title">タスク検索</div>
+                            <Search />
+                        </div>
+
+                    </div>
+
+                    <div className="right">
+                        <div className="title">タスク一覧</div>
+                        <VisibleTodoList />
+                    </div>
+                </div>
+
         )
     }
 }

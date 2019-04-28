@@ -1,16 +1,8 @@
 import React from 'react';
 import Task from './Task';
-
 import PropTypes from 'prop-types';
 
 class TodoList extends React.Component {
-
-    constructor(props) {
-        super(props);
-
-
-        this.handleRemove = this.handleRemove.bind(this);
-    }
 
     handleRemove(id) {
         console.log('TodoListのremove');
@@ -32,7 +24,6 @@ class TodoList extends React.Component {
                     onClickToggleDone={(id) => {onClickToggleDone(id)} }
                     />);
         }
-
         return (<ul className="list js-todo_list">
             {tasks.reverse()}
         </ul>);

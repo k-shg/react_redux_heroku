@@ -20,28 +20,18 @@ class Task extends React.Component {
     }
 
     handleClickToggleDone() {
-        console.log('doneclickToggle');
-
-        // this.setState(prevState => ({
-        //     isDone: !prevState.isDone
-        // }));
-
         this.props.onClickToggleDone(this.props.id);
-
     }
 
     handleClickshowEdit() {
-        console.log('showEdit');
         this.setState(prevState => ({editMode: true}));
     }
 
     handleChangeText(event) {
-        console.log('changeText');
         this.setState({text: event.target.value});
     }
 
     handleKeyUpCloseEdit(event) {
-        console.log('keyUp');
         if (event.keyCode === 13 && event.shiftKey === true) {
             this.setState({
                 editMode: false
@@ -51,7 +41,6 @@ class Task extends React.Component {
     }
 
     handleClickRemove(event) {
-        console.log('remove');
         this.props.onClickRemove(this.props.id);
     }
 
@@ -63,7 +52,7 @@ class Task extends React.Component {
             'fa': true,
             'icon-check': true,
             'fa-check-circle': this.props.isDone,
-            'fa-circle-thin': !this.state.isDone,
+            'fa-circle-thin': !this.props.isDone,
             'fa-square-o': this.props.isDone === false
         });
 
@@ -72,7 +61,7 @@ class Task extends React.Component {
             : <input type="text" className="editText js-todo_list-editForm" onChange={this.handleChangeText} onKeyUp={this.handleKeyUpCloseEdit} value={this.state.text}/>;
 
         return (<div>
-            <li className={classNameLi} data-text="サンプルTODOタスク">
+            <li className={classNameLi} data-text={this.props.text}>
                 <i className={classNameIcon} onClick={this.handleClickToggleDone} aria-hidden="true"></i>
                 {input}
                 <i className="fa fa-trash icon-trash js-click-trash" onClick={this.handleClickRemove} aria-hidden="true"></i>

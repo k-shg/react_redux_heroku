@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {searchTask} from '../actions'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
@@ -11,7 +10,6 @@ class Search extends React.Component {
         this.state = {
             text: ''
         }
-
         this.handleChangeText = this.handleChangeText.bind(this);
 
     }
@@ -29,7 +27,7 @@ class Search extends React.Component {
                 <i className="fa fa-search searchBox__icon" area-hidden="true"></i>
                 <input
                     onChange={this.handleChangeText}
-                    type="text" className="searchBox__input" value={this.state.text} placeholder="キーワード入れて"/>
+                    type="text" className="searchBox__input" value={this.state.text} placeholder="検索ワードを入力してください"/>
             </div>
         )
     }
