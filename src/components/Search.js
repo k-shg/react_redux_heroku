@@ -27,7 +27,7 @@ class Search extends React.Component {
                 <i className="fa fa-search searchBox__icon" area-hidden="true"></i>
                 <input
                     onChange={this.handleChangeText}
-                    type="text" className="searchBox__input" value={this.state.text} placeholder="検索ワードを入力してください"/>
+                    type="text" className="searchBox__input" value={this.state.text} placeholder="検索ワードを入力"/>
             </div>
         )
     }
