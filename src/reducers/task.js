@@ -9,17 +9,32 @@ import _ from 'lodash';
 const initialState = {
     todos: [{
         id: '01',
-        text: 'aaaaa',
+        text: '単体試験結果レビュー',
         isDone: false
     },
     {
         id: '02',
-        text: 'aaaサンプルタスク',
+        text: '単体試験',
         isDone: false
     },
     {
         id: '03',
-        text: 'aacサンプルタスク',
+        text: '単体試験書作成レビュー',
+        isDone: false
+    },
+    {
+        id: '04',
+        text: '実装レビュー',
+        isDone: false
+    },
+    {
+        id: '05',
+        text: '実装',
+        isDone: false
+    },
+    {
+        id: '06',
+        text: '詳細設計書作成',
         isDone: false
     }],
     searchText: ''
